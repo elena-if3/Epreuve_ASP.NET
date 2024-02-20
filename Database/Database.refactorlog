@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="804aca22-9d4f-456f-879a-da61d15481ee" ChangeDateTime="02/20/2024 09:10:05">
+    <Property Name="ElementName" Value="[dbo].[Category].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Category]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Category" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bfba1750-04f2-4972-99e6-cba9f4bf4f45" ChangeDateTime="02/20/2024 09:10:49">
+    <Property Name="ElementName" Value="[dbo].[EcoScore].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[EcoScore]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EcoScore" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7f299713-9c96-42d1-b37c-69a9ec92b399" ChangeDateTime="02/20/2024 09:29:17">
+    <Property Name="ElementName" Value="[dbo].[Media].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Media]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MediaId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ed307336-8daa-4390-9784-8dbee8b9d1c8" ChangeDateTime="02/20/2024 09:29:27">
+    <Property Name="ElementName" Value="[dbo].[Media].[MediaId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Media]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Media_Id" />
+  </Operation>
+</Operations>
