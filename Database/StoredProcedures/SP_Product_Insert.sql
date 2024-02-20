@@ -2,10 +2,9 @@
     @name NVARCHAR(50),
     @description NVARCHAR(MAX),
     @price MONEY,
-    @category NVARCHAR(25),
-    @eco_score CHAR(1),
-    @media_id INT
+    @category_id INT,
+    @eco_score CHAR(1)
 AS
-	INSERT INTO [Product] ([Name],[Description],[Price],[Category],[EcoScore],[Media_Id])
+	INSERT INTO [Product] ([Name],[Description],[Price],[Category_Id],[EcoScore])
         OUTPUT [inserted].[Product_Id]
-        VALUES (@name, @description, @price, @category, @eco_score, @media_id)
+        VALUES (@name, @description, @price, @category_id, @eco_score)

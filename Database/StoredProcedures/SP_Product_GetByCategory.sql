@@ -1,12 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Product_GetByCategory]
-	@category NVARCHAR(25)
+	@category_id INT
 AS
 	SELECT 	[Product_Id],
             [Name], 
             [Description], 
             [Price], 
-            [Category], 
-            [EcoScore], 
-            [Media_Id]
+            [Category_Id], 
+            [EcoScore]
         FROM [Product]
-        WHERE [Category] = @category
+        WHERE [Category_Id] = @category_id

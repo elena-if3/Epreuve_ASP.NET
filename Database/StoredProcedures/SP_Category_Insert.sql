@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Category_Insert]
-	@new_category NVARCHAR(25)
+	@cat_name NVARCHAR(25),
+	@cat_descr NVARCHAR(MAX)
 AS
-	INSERT INTO [Category] ([Category])
-		OUTPUT [inserted].[Category]
-		VALUES (@new_category)
+	INSERT INTO [Category] ([CatName],[CatDescr])
+		OUTPUT [inserted].[Cat_Id]
+		VALUES (@cat_name, @cat_descr)

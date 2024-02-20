@@ -4,7 +4,6 @@ AS
             [Name], 
             [Description], 
             [Price], 
-            [Category], 
-            [EcoScore], 
-            [Media_Id]
+            [Category_Id], 
+            [EcoScore]
         FROM [Product]
