@@ -107,7 +107,67 @@ namespace DAL.Services
             }
         }
 
-        //public IEnumerable<Product> GetByCategory()
+        public IEnumerable<Product> GetByCategory(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SP_Product_GetByCategory";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Cat_Id", id);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToProduct();
+                        }
+                    }
+                }
+            }
+        }
 
+        public IEnumerable<Product> GetByEcoScore(string ecoScore)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SP_Product_GetByEcoScore";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("EcoScore", ecoScore);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToProduct();
+                        }
+                    }
+                }
+            }
+        }
+
+        public IEnumerable<Product> GetByName(string name)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SP_Product_GetByName";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("Name", name);
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToProduct();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
