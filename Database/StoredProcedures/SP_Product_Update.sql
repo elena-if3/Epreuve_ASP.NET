@@ -4,12 +4,12 @@
     @description NVARCHAR(1000),
     @price MONEY,
     @category_id INT,
-    @eco_score CHAR(1)
+    @ecoscore CHAR(1)
 AS
 	UPDATE [Product]
         SET [Name] = @name,
             [Description] = @description,
             [Price] = @price,
             [Category_Id] = @category_id,
-            [EcoScore] = @eco_score
+            [EcoScore] = @ecoscore
         WHERE [Product_Id] = @product_id

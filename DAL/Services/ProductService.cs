@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace DAL.Services
 {
@@ -62,7 +64,7 @@ namespace DAL.Services
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read()) return reader.ToProduct();
-                        throw new ArgumentException(nameof(id), $"The id #{ id } does not exist in the database.");
+                        throw new ArgumentException(nameof(id), $"The id #{id} does not exist in the database.");
                     }
                 }
             }
@@ -82,7 +84,7 @@ namespace DAL.Services
                     cmd.Parameters.AddWithValue("Category_Id", data.Category_Id);
                     cmd.Parameters.AddWithValue("EcoScore", data.EcoScore);
                     conn.Open();
-                    return (int)cmd.ExecuteScalar();
+                    return (int) cmd.ExecuteScalar();
                 }
             }
         }

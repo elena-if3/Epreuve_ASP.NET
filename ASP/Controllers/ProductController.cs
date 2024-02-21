@@ -25,7 +25,8 @@ namespace ASP.Controllers
         // GET: ProductController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ProductDetailsViewModel model = _productRepository.Get(id).ToDetails();
+            return View(model);
         }
 
         // GET: ProductController/Create
@@ -37,11 +38,14 @@ namespace ASP.Controllers
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ProductCreateForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form is null) ModelState.AddModelError(nameof(form), "No form returned!");
+                if (!ModelState.IsValid) throw new Exception();
+                int id = _productRepository.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Index), new { id });
             }
             catch
             {

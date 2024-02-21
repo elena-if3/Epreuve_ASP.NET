@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Product_GetById]
-	@id INT
+	@product_id INT
 AS
 	SELECT 	[Product_Id],
             [Name], 
@@ -8,4 +8,4 @@ AS
             [Category_Id], 
             [EcoScore]
         FROM [Product]
-        WHERE [Product_Id] = @id
+        WHERE [Product_Id] = @product_id

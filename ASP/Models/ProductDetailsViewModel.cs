@@ -1,13 +1,12 @@
 ﻿using BLL.Entities;
-using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace ASP.Models
 {
-    public class ProductListItemViewModel
+    public class ProductDetailsViewModel
     {
-        [ScaffoldColumn(false)]
+        [DisplayName("Product identifier")]
         public int Product_Id { get; set; }
 
         [DisplayName("Product name")]
