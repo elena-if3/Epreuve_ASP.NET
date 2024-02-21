@@ -56,21 +56,33 @@ namespace ASP.Controllers
         // GET: ProductController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                ProductEditForm model = _productRepository.Get(id).Update();
+                if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"No product with identifier #{id}.");
+                return View(model);
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, ProductEditForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form is null) ModelState.AddModelError(nameof(form), "No form returned.");
+                if (!ModelState.IsValid) throw new Exception();
+                _productRepository.Update(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id });
             }
             catch
             {
-                return View();
+                return View(form);
             }
         }
 
