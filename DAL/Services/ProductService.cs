@@ -79,7 +79,7 @@ namespace DAL.Services
                     cmd.Parameters.AddWithValue("Name", data.Name);
                     cmd.Parameters.AddWithValue("Description", data.Description);
                     cmd.Parameters.AddWithValue("Price", data.Price);
-                    cmd.Parameters.AddWithValue("Category", data.Category);
+                    cmd.Parameters.AddWithValue("Category_Id", data.Category_Id);
                     cmd.Parameters.AddWithValue("EcoScore", data.EcoScore);
                     conn.Open();
                     return (int)cmd.ExecuteScalar();
@@ -99,7 +99,7 @@ namespace DAL.Services
                     cmd.Parameters.AddWithValue("Name", data.Name);
                     cmd.Parameters.AddWithValue("Description", data.Description);
                     cmd.Parameters.AddWithValue("Price", data.Price);
-                    cmd.Parameters.AddWithValue("Category", data.Category);
+                    cmd.Parameters.AddWithValue("Category_Id", data.Category_Id);
                     cmd.Parameters.AddWithValue("EcoScore", data.EcoScore);
                     conn.Open();
                     if (cmd.ExecuteNonQuery() <= 0) throw new ArgumentException(nameof(data.Product_Id), $"The id #{ data.Product_Id } does not exist in the database.");

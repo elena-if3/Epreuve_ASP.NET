@@ -1,6 +1,5 @@
 ﻿using DAL.Entities;
 using System.Data;
-using System.Xml;
 
 namespace DAL.Mappers
 {
@@ -47,8 +46,8 @@ namespace DAL.Mappers
                 Product_Id = (int)record["Product_Id"],
                 Name = (string)record["Name"],
                 Description = (string)record["Description"],
-                Price = (double)record["Price"],
-                Category = (string)record["Category"],
+                Price = (decimal)record["Price"],
+                Category_Id = (int)record["Category_Id"],
                 EcoScore = (string)record["EcoScore"]
             };
         }
