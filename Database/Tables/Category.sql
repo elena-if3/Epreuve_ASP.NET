@@ -2,5 +2,5 @@
 (
 	[Cat_Id] INT IDENTITY NOT NULL PRIMARY KEY, 
     [CatName] NVARCHAR(25) NOT NULL, 
-    [CatDescr] NVARCHAR(MAX) NULL
+    [CatDescr] NVARCHAR(250) NULL
 )

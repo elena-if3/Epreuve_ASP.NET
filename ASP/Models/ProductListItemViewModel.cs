@@ -18,7 +18,7 @@ namespace ASP.Models
         [DisplayName("Price in EUR - VAT incl.")]
         public decimal Price { get; set; }
 
-        [DisplayName("Category")]
+        [DisplayName("Category identifier")]
         public int Category_Id { get; set; }
 
         [DisplayName("Eco-score")]

@@ -2,7 +2,7 @@
 (
 	[Product_Id] INT IDENTITY NOT NULL PRIMARY KEY, 
     [Name] NVARCHAR(50) NOT NULL, 
-    [Description] NVARCHAR(MAX) NOT NULL, 
+    [Description] NVARCHAR(1000) NOT NULL, 
     [Price] MONEY NOT NULL, 
     [Category_Id] INT NOT NULL, 
     [EcoScore] CHAR(1) NOT NULL, 
