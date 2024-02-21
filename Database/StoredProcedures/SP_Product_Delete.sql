@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[SP_Product_Delete]
-	@id int
+	@product_id int
 AS
 	DELETE FROM [Product]
-		WHERE [Product_Id] = @id
+		WHERE [Product_Id] = @product_id

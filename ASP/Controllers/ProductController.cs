@@ -89,21 +89,32 @@ namespace ASP.Controllers
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                ProductDeleteViewModel model = _productRepository.Get(id).Delete();
+                if (model is null) throw new InvalidDataException();
+                return View(model);
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = $"Identifier #{ id } not valid!";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         // POST: ProductController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ProductDeleteViewModel model)
         {
             try
             {
+                _productRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
     }

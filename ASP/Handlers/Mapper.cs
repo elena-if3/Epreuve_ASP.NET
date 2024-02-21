@@ -72,5 +72,19 @@ namespace ASP.Handlers
                 entity.EcoScore
                 );
         }
+
+        public static ProductDeleteViewModel Delete (this Product entity)
+        {
+            if (entity is null) return null;
+            return new ProductDeleteViewModel()
+            {
+                Product_Id = entity.Product_Id,
+                Name = entity.Name,
+                Description = entity.Description,
+                Price = entity.Price,
+                Category_Id = entity.Category_Id,
+                EcoScore = entity.EcoScore
+            };
+        }
     }
 }
