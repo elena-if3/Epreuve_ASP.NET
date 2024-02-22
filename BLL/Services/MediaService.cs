@@ -9,11 +9,14 @@ namespace BLL.Services
     public class MediaService : IMediaRepository<Media>
     {
         private readonly IMediaRepository<DAL.Entities.Media> _mediaRepository;
+        private readonly IProductRepository<DAL.Entities.Product> _productRepository;
 
         public MediaService(IMediaRepository<DAL.Entities.Media>
-            mediaRepository)
+            mediaRepository, IProductRepository<DAL.Entities.Product> productRepository)
         {
             _mediaRepository = mediaRepository;
+            _productRepository = productRepository;
+
         }
 
         public void Delete(int id)
@@ -43,7 +46,12 @@ namespace BLL.Services
 
         public IEnumerable<Media> GetByProduct(int productId)
         {
-            return _mediaRepository.GetByProduct(productId).Select(d => d.ToBLL());
+            return _mediaRepository.GetByProduct(productId).Select(d =>
+            {
+                Media result = d.ToBLL();
+                result.Product = _productRepository.Get(result.Media_Id).ToBLL();
+                return result;
+            });
         }
     }
 }

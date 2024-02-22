@@ -10,7 +10,8 @@ builder.Services.AddScoped<IProductRepository<BLL.Entities.Product>, BLL.Service
 builder.Services.AddScoped<IProductRepository<DAL.Entities.Product>, DAL.Services.ProductService>();
 builder.Services.AddScoped<IMediaRepository<BLL.Entities.Media>, BLL.Services.MediaService>();
 builder.Services.AddScoped<IMediaRepository<DAL.Entities.Media>, DAL.Services.MediaService>();
-
+builder.Services.AddScoped<ICategoryRepository<BLL.Entities.Category>, BLL.Services.CategoryService>();
+builder.Services.AddScoped<ICategoryRepository<DAL.Entities.Category>, DAL.Services.CategoryService>();
 
 var app = builder.Build();
 

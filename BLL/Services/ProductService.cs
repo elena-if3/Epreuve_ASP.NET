@@ -1,18 +1,21 @@
-﻿using BLL.Mappers;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BLL.Mappers;
 using Product = BLL.Entities.Product;
 using Shared.Repositories;
-using System.Collections.Generic;
-using System.Linq;
+using Media = BLL.Entities.Media;
 
 namespace BLL.Services
 {
     public class ProductService : IProductRepository<Product>
     {
         private readonly IProductRepository<DAL.Entities.Product> _productRepository;
+        private readonly IMediaRepository<Media> _mediaRepository;
 
-        public ProductService(IProductRepository<DAL.Entities.Product> productRepository)
+        public ProductService(IProductRepository<DAL.Entities.Product> productRepository, IMediaRepository<Media> mediaRepository)
         {
             _productRepository = productRepository;
+            _mediaRepository = mediaRepository;
         }
 
         public void Delete(int id)
@@ -27,7 +30,10 @@ namespace BLL.Services
 
         public Product Get(int id)
         {
-            return _productRepository.Get(id).ToBLL();
+            Product entity = _productRepository.Get(id).ToBLL();
+            IEnumerable<Media> media = _mediaRepository.GetByProduct(id);
+            entity.AddMedias(media);
+            return entity;
         }
 
         public int Insert(Product data)

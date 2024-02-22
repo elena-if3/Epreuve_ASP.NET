@@ -5,6 +5,28 @@ namespace ASP.Handlers
 {
     public static class Mapper
     {
+        public static CategoryListItemViewModel ToListItem(this Category entity)
+        {
+            if (entity is null) return null;
+            return new CategoryListItemViewModel()
+            {
+                Cat_Id = entity.Cat_Id,
+                CatName = entity.CatName,
+                CatDescr = entity.CatDescr,
+            };
+        }
+
+        public static CategoryDetailsViewModel ToDetails(this Category entity)
+        {
+            if (entity is null) return null;
+            return new CategoryDetailsViewModel()
+            {
+                Cat_Id = entity.Cat_Id,
+                CatName = entity.CatName,
+                CatDescr = entity.CatDescr,
+            };
+        }
+
         #region Product
         public static ProductListItemViewModel ToListItem(this Product entity)
         {
