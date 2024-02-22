@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 // Add services by dependency injection:
 builder.Services.AddScoped<IProductRepository<BLL.Entities.Product>, BLL.Services.ProductService>();
 builder.Services.AddScoped<IProductRepository<DAL.Entities.Product>, DAL.Services.ProductService>();
+builder.Services.AddScoped<IMediaRepository<BLL.Entities.Media>, BLL.Services.MediaService>();
+builder.Services.AddScoped<IMediaRepository<DAL.Entities.Media>, DAL.Services.MediaService>();
 
 
 var app = builder.Build();

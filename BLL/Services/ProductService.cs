@@ -39,6 +39,7 @@ namespace BLL.Services
         {
             _productRepository.Update(data.ToDAL());
         }
+
         public IEnumerable<Product> GetByCategory(int id)
         {
             return _productRepository.GetByCategory(id).Select(d => d.ToBLL());

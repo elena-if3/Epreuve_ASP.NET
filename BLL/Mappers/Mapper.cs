@@ -5,6 +5,7 @@ namespace BLL.Mappers
 {
     internal static class Mapper
     {
+        #region Product
         public static Product ToBLL(this DAL.Entities.Product entity)
         {
             if (entity is null) return null;
@@ -31,5 +32,28 @@ namespace BLL.Mappers
                 EcoScore = entity.EcoScore.ToString()
             };
         }
+        #endregion
+        #region Media
+        public static Media ToBLL(this DAL.Entities.Media entity)
+        {
+            if (entity is null) return null;
+            return new Media(
+                entity.Media_Id,
+                entity.Link,
+                entity.Product_Id
+                );
+        }
+
+        public static DAL.Entities.Media ToDAL(this Media entity)
+        {
+            if (entity is null) return null;
+            return new DAL.Entities.Media()
+            {
+                Media_Id = entity.Media_Id,
+                Link = entity.Link,
+                Product_Id = entity.Product_Id
+            };
+        } 
+        #endregion
     }
 }
