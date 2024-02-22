@@ -5,6 +5,7 @@ namespace ASP.Handlers
 {
     public static class Mapper
     {
+        #region Product
         public static ProductListItemViewModel ToListItem(this Product entity)
         {
             if (entity is null) return null;
@@ -73,7 +74,7 @@ namespace ASP.Handlers
                 );
         }
 
-        public static ProductDeleteViewModel Delete (this Product entity)
+        public static ProductDeleteViewModel Delete(this Product entity)
         {
             if (entity is null) return null;
             return new ProductDeleteViewModel()
@@ -85,6 +86,15 @@ namespace ASP.Handlers
                 Category_Id = entity.Category_Id,
                 EcoScore = entity.EcoScore
             };
+        } 
+        #endregion
+        public static Media ToBLL(this MediaCreateForm entity)
+        {
+            if (entity is null) return null;
+            return new Media(
+                entity.Photo.FileName,
+                entity.Product_Id
+                );
         }
     }
 }
