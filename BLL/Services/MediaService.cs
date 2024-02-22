@@ -40,5 +40,10 @@ namespace BLL.Services
         {
             _mediaRepository.Update(data.ToDAL());
         }
+
+        public IEnumerable<Media> GetByProduct(int productId)
+        {
+            return _mediaRepository.GetByProduct(productId).Select(d => d.ToBLL());
+        }
     }
 }
