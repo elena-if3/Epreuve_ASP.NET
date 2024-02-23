@@ -9,10 +9,12 @@ namespace ASP.Controllers
     public class ProductController : Controller
     {
         private readonly IProductRepository<Product> _productRepository;
+        private readonly ICategoryRepository<Category> _categoryRepository;
 
-        public ProductController(IProductRepository<Product> productRepository)
+        public ProductController(IProductRepository<Product> productRepository, ICategoryRepository<Category> categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         // GET: ProductController
@@ -32,7 +34,9 @@ namespace ASP.Controllers
         // GET: ProductController/Create
         public ActionResult Create()
         {
-            return View();
+            ProductCreateForm model = new ProductCreateForm();
+            model.Categories = _categoryRepository.Get().Select(d => d.ToListItem());
+            return View(model);
         }
 
         // POST: ProductController/Create

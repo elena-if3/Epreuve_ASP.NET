@@ -10,7 +10,7 @@ namespace ASP.Models
         [DisplayName("Category name")]
         public string CatName { get; set; }
 
-        [DisplayName("Category description")]
-        public string? CatDescr { get; set; }
+        //[DisplayName("Category description")]
+        //public string? CatDescr { get; set; }
     }
 }

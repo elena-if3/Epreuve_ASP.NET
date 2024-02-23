@@ -31,5 +31,8 @@ namespace ASP.Models
         [Required(ErrorMessage = "Mandatory field!")]
         [EnumDataType(typeof(EcoScores))]
         public EcoScores EcoScore { get; set; }
+
+        [DisplayName("Category list")]
+        public IEnumerable<CategoryListItemViewModel> Categories { get; set; }
     }
 }
