@@ -33,6 +33,6 @@ namespace ASP.Models
         public EcoScores EcoScore { get; set; }
 
         [DisplayName("Category list")]
-        public IEnumerable<CategoryListItemViewModel> Categories { get; set; }
+        public IEnumerable<CategoryListItemViewModel>? Categories { get; set; }
     }
 }
